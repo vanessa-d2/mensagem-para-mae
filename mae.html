@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mensagem para Mamãe</title>
+  <style>
+    body {
+      background: #fff0f6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #a83279;
+      padding: 20px;
+    }
+    h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+    button {
+      background-color: #e91e63;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.5em;
+      padding: 15px 40px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+      transition: background-color 0.3s ease;
+      margin: 10px 0;
+    }
+    button:hover {
+      background-color: #c2185b;
+    }
+    .message {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 10px 20px rgba(168, 50, 121, 0.2);
+      max-width: 400px;
+      text-align: center;
+      margin-top: 40px;
+      display: none;
+      color: #a83279;
+    }
+    .message h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    .message p {
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+    .heart {
+      color: #e91e63;
+      font-size: 2.5em;
+      margin: 15px 0;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Mensagem para Mamãe</h1>
+  <button id="showMessageBtn">Clique aqui para ver</button>
+  <button id="sendWhatsAppBtn" style="display:none;">Enviar no WhatsApp</button>
+
+  <div class="message" id="messageBox">
+    <h2>Para a Melhor Mãe ❤️</h2>
+    <div class="heart">💖</div>
+    <p>Você é meu porto seguro, minha inspiração e meu amor infinito. Obrigado por tudo que você faz e por ser quem é. Te amo para sempre!</p>
+  </div>
+
+  <script>
+    const showBtn = document.getElementById('showMessageBtn');
+    const messageBox = document.getElementById('messageBox');
+    const sendBtn = document.getElementById('sendWhatsAppBtn');
+
+    showBtn.onclick = function() {
+      messageBox.style.display = 'block';
+      this.style.display = 'none';
+      sendBtn.style.display = 'inline-block';
+    };
+
+    sendBtn.onclick = function() {
+      const text = encodeURIComponent(
+        "Para a Melhor Mãe ❤️\n\n" +
+        "Você é meu porto seguro, minha inspiração e meu amor infinito.\n" +
+        "Obrigado por tudo que você faz e por ser quem é.\n" +
+        "Te amo para sempre!"
+      );
+      const whatsappUrl = `https://wa.me/?text=${text}`;
+      window.open(whatsappUrl, '_blank');
+    };
+  </script>
+</body>
+</html>
+
