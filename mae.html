@@ -71,7 +71,6 @@
 <body>
   <h1>Mensagem para Mamãe</h1>
   <button id="showMessageBtn">Clique aqui para ver</button>
-  <button id="sendWhatsAppBtn" style="display:none;">Enviar no WhatsApp</button>
 
   <div class="message" id="messageBox">
     <h2>Para a Melhor Mãe ❤️</h2>
@@ -82,25 +81,11 @@
   <script>
     const showBtn = document.getElementById('showMessageBtn');
     const messageBox = document.getElementById('messageBox');
-    const sendBtn = document.getElementById('sendWhatsAppBtn');
 
     showBtn.onclick = function() {
       messageBox.style.display = 'block';
       this.style.display = 'none';
-      sendBtn.style.display = 'inline-block';
-    };
-
-    sendBtn.onclick = function() {
-      const text = encodeURIComponent(
-        "Para a Melhor Mãe ❤️\n\n" +
-        "Você é meu porto seguro, minha inspiração e meu amor infinito.\n" +
-        "Obrigado por tudo que você faz e por ser quem é.\n" +
-        "Te amo para sempre!"
-      );
-      const whatsappUrl = `https://wa.me/?text=${text}`;
-      window.open(whatsappUrl, '_blank');
     };
   </script>
 </body>
 </html>
-
